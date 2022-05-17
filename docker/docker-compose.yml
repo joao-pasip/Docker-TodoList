@@ -1,14 +1,18 @@
 version: "3"
 services:
   todotests:
-    build: ./todo-app/tests
+    build: 
+      context: ./todo-app/tests
+      dockerfile: Dockerfile
     depends_on:
       - "todofront"
       - "todoback"
     environment:
       - FRONT_HOST=todofront
   todofront:
-    build: ./todo-app/front-end
+    build: 
+      context: ./todo-app/front-end
+      dockerfile: Dockerfile
     depends_on:
       - "todoback"
     environment:
@@ -16,6 +20,8 @@ services:
     ports:
       - 3000:3000
   todoback:
-    build: ./todo-app/back-end
+    build: 
+      context: ./todo-app/back-end
+      dockerfile: Dockerfile
     ports:
       - 3001:3001

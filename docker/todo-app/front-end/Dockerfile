@@ -1,4 +1,4 @@
-FROM node:14-alpine AS todofrontend
+FROM node:14-alpine
 
 WORKDIR /app
 
